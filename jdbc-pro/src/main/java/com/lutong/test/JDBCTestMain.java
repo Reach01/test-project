@@ -2,6 +2,9 @@ package com.lutong.test;
 
 import java.sql.*;
 
+/**
+ * 测试jdbc连接
+ */
 public class JDBCTestMain {
     public static void main(String[] args) {
         /*String url = "jdbc:informix-sqli://10.1.69.150:7779/CRBT_GS:informixserver=dbserver;NEWLOCALE=zh_CN,en_us;NEWCODESET=gbk,8859-1,819;IFX_LOCK_MODE_WAIT=10";

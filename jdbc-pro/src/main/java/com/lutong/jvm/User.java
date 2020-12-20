@@ -31,4 +31,8 @@ public class User {
     public void setName(String name) {
         this.name = name;
     }
+
+    public void sout(){
+        System.out.println("11111111111111111111");
+    }
 }

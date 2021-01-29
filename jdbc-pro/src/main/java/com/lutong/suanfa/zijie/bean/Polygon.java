@@ -70,7 +70,7 @@ public class Polygon {
       }
 
       //判断当前的边是垂直还是水平方向
-      if (coArray[i].getX() == coArray[next].getX()) {
+      if (coArray[i].getX() == coArray[next].getX()) { // 垂直
         double distance = Math.abs(coArray[i].getY() - coArray[next].getY());
 
         if (len < distance) {//当前边上存在k等分点，而且存在多个的情况

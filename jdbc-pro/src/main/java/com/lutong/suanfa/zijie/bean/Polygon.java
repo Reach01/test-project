@@ -55,7 +55,7 @@ public class Polygon {
     return perimeter;
   }
 
-  public Coordinate[] getKDivid(int k) {
+  /*public Coordinate[] getKDivid(int k) {
     double perimeter = getPerimeter();
     double divLen = perimeter / k;
     double len = divLen;
@@ -116,6 +116,51 @@ public class Polygon {
         } else {
           len -= distance;
         }
+      }
+    }
+
+    return coordinates;
+  }*/
+
+  public Coordinate[] getKDivid(int k) {
+    double perimeter = getPerimeter();
+    double divLen = perimeter / k;
+    double len = divLen;
+    Coordinate[] coordinates = new Coordinate[k];
+    int index = 0;
+
+    for (int i = 0; i < coArray.length; i++) {
+      int next = i + 1;
+      // 如果最后一个顶点的话，需要计算和起点的距离
+      if (i == coArray.length - 1) {
+        next = 0;
+      }
+      //判断当前的边是垂直还是水平方向
+      if (coArray[i].getX() == coArray[next].getX()) {
+        double distance = Math.abs(coArray[i].getY() - coArray[next].getY());
+        while (len <= distance) {
+          if (coArray[i].getY() > coArray[next].getY()) {
+            coordinates[index] = new Coordinate(coArray[i].getX(), coArray[i].getY() - len);
+          } else {
+            coordinates[index] = new Coordinate(coArray[i].getX(), coArray[i].getY() + len);
+          }
+          len += divLen;
+          index++;
+        }
+        //len记录了当前边计算完k等分点后还剩余多长
+        len -= distance;
+      } else { //处理垂直方向的情况
+        double distance = Math.abs(coArray[i].getX() - coArray[next].getX());
+        while (len <= distance) {
+          if (coArray[i].getX() > coArray[next].getX()) {
+            coordinates[index] = new Coordinate(coArray[i].getX() - len, coArray[i].getY());
+          } else {
+            coordinates[index] = new Coordinate(coArray[i].getX() + len, coArray[i].getY());
+          }
+          index++;
+          len += divLen;
+        }
+        len -= distance;
       }
     }
 

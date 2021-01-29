@@ -16,7 +16,7 @@ public class P_NbianxTest {
                                         new Coordinate(1,1),new Coordinate(1,0)};
     Polygon polygon = new Polygon(arr);
     System.out.println(polygon.getPerimeter());
-    Coordinate[] kDivid = polygon.getKDivid(4);
+    Coordinate[] kDivid = polygon.getKDivid(8);
     for(int i = 0;i<kDivid.length;i++){
       System.out.println(kDivid[i]);
     }
